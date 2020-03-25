@@ -1,10 +1,11 @@
 import random
 
+
 class RandomGenerator:
 
     def writetoFile(self, fileName, string):
         filePath = "../data/"+fileName
-        fileObj = open(fileName, 'a')
+        fileObj = open(filePath, 'a')
         fileObj.write(string)
         fileObj.close()
 
