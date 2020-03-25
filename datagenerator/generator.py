@@ -3,6 +3,7 @@ import random
 class RandomGenerator:
 
     def writetoFile(self, fileName, string):
+        filePath = "../data/"+fileName
         fileObj = open(fileName, 'a')
         fileObj.write(string)
         fileObj.close()
