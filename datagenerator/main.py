@@ -12,9 +12,7 @@ def main(fileName, fileSize):
     exe.runGenerator(fileName, fileSize)
 
     endTime = time.perf_counter()
-
     print(f'Execution comepleted in {round(endTime-startTime,2)} second(s)')
-
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
