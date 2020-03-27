@@ -14,6 +14,7 @@ echo
 echo 10 processes will be spawned to search "$FILENAME" for the string \"FiCo\".
 echo 
 echo Each process will run for "$TIMEOUT" seconds.
+echo
 echo Starting processor script...
 echo
 python3 ../processor/main.py "$FILENAME"  -t "$TIMEOUT"
