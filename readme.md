@@ -27,6 +27,16 @@ The final process checks 4 bytes of data starting from index = 19 of the file.
 This way, each of the 10 child processes check for the required string without checking substrings that are already processed, but ensuring that all substrings are parallely checked for efficient execution.
 
 
+
+The script collects the results of each child process and writes a report to stdout for each worker sorted in descending order by elapsed executed time. The information provided are PROCESSID, ELAPSED TIME IN MS, NUMBER OF BYTES PROCESSED, STATUS for each process.
+
+The script also provides a final line of output that show the average bytes read per millisecond, where failed/timed out workers will not report stats.
+
+
+The Data Generator can be used to generate pseudorandom data stream into a file. Currently it only adds random alphabets from A-Z, both upper and lower case, to the file.
+
+
+
 ## Preequisites and Installation
 
 You need to ensure that Python 3 is installed on your system.
