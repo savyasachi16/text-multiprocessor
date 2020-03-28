@@ -20,19 +20,26 @@ class StreamProcessor:
         return int((endTime-startTime)*100)
 
     def proc(self, startIndex):
-        fileObj = open(self.fileName, 'r')
-
-        idx = startIndex
-        fileObj.seek(idx)
-        pid = os.getpid()
-        bytesRead = 0
-        startTime = time.perf_counter()
-
         try:
+
+            idx = startIndex
+            pid = os.getpid()
+            bytesRead = 0
+            startTime = time.perf_counter()
+
+            fileObj = open(self.fileName, 'r')
+            fileObj.seek(idx)
+            
+            fileObj = open(self.fileName, 'r')
+            fileObj.seek(idx)
             while True:
                 temp = fileObj.read(4)
                 bytesRead += 4
-                if self.execTime(startTime) >= self.timeout:
+                if temp == '' or len(temp) != 4:    # Assuming input is limited
+                    fileObj.close()
+                    return [pid, self.timeout, bytesRead, "FAILURE"]
+
+                elif self.execTime(startTime) >= self.timeout:
                     fileObj.close()
                     return [pid, self.timeout, bytesRead, "TIMEOUT"]
 
@@ -42,12 +49,10 @@ class StreamProcessor:
                 idx += 10
                 fileObj.seek(idx)
         except:
-            fileObj.close()
             return [pid, self.execTime(startTime), bytesRead, "FAILURE"]
-            return
 
     def displayResults(self):
-        self.result = sorted(self.result, key=lambda l: l[1])
+        self.result = sorted(self.result, key=lambda l: l[1], reverse=True)
         totalTime = 0
         totalBytes = 0
         print("PID      Elapsed Time        Byted Read      Status")
@@ -56,20 +61,16 @@ class StreamProcessor:
             if i[3] == "SUCCESS":
                 totalTime += i[1]
                 totalBytes += i[2]
-        print(
-            f"Average Bytes Read/Millisecond for Successful Processes = {totalBytes//totalTime} Bytes/ms")
-
-    """
-    The parent collects the results of each worker and writes a report to stdout for each worker sorted 
-    in descending order by [elapsed]: [elapsed] [byte_cnt] [status]
-    A final line of output will show the average bytes read per time unit in a time unit of your choice 
-    where failed/timeout workers will not report stats. 11 lines of output total to stdout.
-    """
+        try:
+            print(
+                f"Average Bytes Read/Millisecond for Successful Processes = {totalBytes//totalTime} bytes/ms")
+        except:
+            print(
+                f"Average Bytes Read/Millisecond for Successful Processes = 0 bytes/ms")
 
     def runStreamProcessor(self):
         with concurrent.futures.ProcessPoolExecutor() as executor:
             processes = [executor.submit(self.proc, i) for i in range(10)]
-
         for f in concurrent.futures.as_completed(processes):
             self.result.append(f.result())
         self.displayResults()

@@ -5,15 +5,10 @@ from streamProcessor import StreamProcessor
 
 
 def main(fileName, timeout):
-    startTime = time.perf_counter()
-    print("Initiated data stream processor...")
+    print("Initiated data stream processor. Please wait...")
 
     exe = StreamProcessor(fileName, timeout)
     exe.runStreamProcessor()
-
-    endTime = time.perf_counter()
-    print(f'Execution comepleted in {round(endTime-startTime,2)} second(s)')
-
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(

@@ -17,5 +17,5 @@ echo Each process will run for "$TIMEOUT" seconds.
 echo
 echo Starting processor script...
 echo
-python3 ../processor/main.py "$FILENAME"  -t "$TIMEOUT"
+python3 ../src/processor/main.py "$FILENAME"  -t "$TIMEOUT"
 echo
