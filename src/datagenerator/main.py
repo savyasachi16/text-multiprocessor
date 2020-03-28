@@ -1,5 +1,4 @@
 import time
-import sys
 import argparse
 from generator import RandomGenerator
 
@@ -13,6 +12,7 @@ def main(fileName, fileSize):
 
     endTime = time.perf_counter()
     print(f'Execution comepleted in {round(endTime-startTime,2)} second(s)')
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(

@@ -10,9 +10,9 @@ parser.add_argument('filesize',default=False, help='Specify the size of the file
 EOF
 
 echo
-echo Data Stream file "$FILENAME" of size "$FILESIZE"MB will be generated in the data folder.
+echo Data Stream file "$FILENAME" of size "$FILESIZE"MB will be generated in the current directory.
 echo
 echo Starting generator script...
 echo
-python3 ../datagenerator/main.py "$FILENAME" "$FILESIZE"
+python3 ../src/datagenerator/main.py "$FILENAME" "$FILESIZE"
 echo

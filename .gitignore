@@ -1,3 +1,6 @@
 sample.txt
 .DS_Store
-datagenerator/__pycache__/generator.cpython-37.pyc
+bin/new.txt
+bin/data.txt
+src/datagenerator/__pycache__/generator.cpython-37.pyc
+src/processor/__pycache__/streamProcessor.cpython-37.pyc
