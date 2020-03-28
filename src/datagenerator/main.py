@@ -2,7 +2,7 @@ import time
 import argparse
 from generator import RandomGenerator
 
-
+#Main function that calls the generator class
 def main(fileName, fileSize):
     startTime = time.perf_counter()
 
@@ -13,7 +13,7 @@ def main(fileName, fileSize):
     endTime = time.perf_counter()
     print(f'Execution comepleted in {round(endTime-startTime,2)} second(s)')
 
-
+#Parsing specified, in case python script is called directly instead of through the shell script
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description="This script is used to generate random stream of alphabets in a text file.")

@@ -9,7 +9,7 @@ The first process checks 4 bytes of data starting from index = 0 of the file.
 
 The next process checks 4 bytes of data starting from index = 1 of the file.
 
-The third process checks 4 bytes of data starting from index = 3 of the file.
+The third process checks 4 bytes of data starting from index = 2 of the file.
 
 ...
 
@@ -38,7 +38,7 @@ The Data Generator can be used to generate pseudorandom data stream into a file.
 
 
 
-## Preequisites and Installation
+## Prerequisites and Installation
 
 You need to ensure that Python 3 is installed on your system.
 
@@ -63,7 +63,7 @@ Additionally, you can also run the script without providing the process timeout:
 ```bash
 ./start.sh <yourfilehere>
 ```
-This would set the default timeout value of 60 seconds.
+This would set the default timeout value to 60 seconds.
 
 
 ### Running the Data Generator
