@@ -56,23 +56,6 @@ Run the generateData.sh script to begin execution of the data generator:
 ```
 where 'youfilehere' is the file path, or file name if it is to be placed in the same directory. 'filesizeMB' is the size of the file in MB.
 
-
-## File Structure
-
-├── bin
-│   ├── argparse.bash
-│   ├── generateData.sh
-│   ├── start.sh
-├── src
-│   ├── datagenerator
-│   │   ├── generator.py
-│   │   ├── main.py
-│   ├── processor
-│   │   ├── streamProcessor.py
-│   │   ├── main.py
-├── README.md
-
-
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
