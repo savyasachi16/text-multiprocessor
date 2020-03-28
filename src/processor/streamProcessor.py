@@ -21,7 +21,6 @@ class StreamProcessor:
 
     def proc(self, startIndex):
         try:
-
             idx = startIndex
             pid = os.getpid()
             bytesRead = 0

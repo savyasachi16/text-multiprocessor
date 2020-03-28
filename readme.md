@@ -54,6 +54,7 @@ Additionally, you can also run the script without providing the process timeout:
 ```
 This would set the default timeout value of 60 seconds.
 
+
 ### Running the Data Generator
 Navigate to the bin folder:
 ```bash
@@ -64,6 +65,22 @@ Run the generateData.sh script to begin execution of the data generator:
 ./generateData.sh <yourfilehere> <filesizeMB>
 ```
 where 'youfilehere' is the file path, or file name if it is to be placed in the same directory. 'filesizeMB' is the size of the file in MB.
+
+
+## Sample Output for Stream Processing
+PID      Elapsed Time        Byted Read      Status
+29492          6000          13877856        TIMEOUT
+29495          6000          12936620        TIMEOUT
+29496          6000          13844380        TIMEOUT
+29493          6000          14558312        TIMEOUT
+29498          6000          12976528        TIMEOUT
+29494          6000          12800816        TIMEOUT
+29497          4039          8162900         SUCCESS
+29491          1569          3007928         SUCCESS
+29493          682           1238452         SUCCESS
+29492          372           643320          SUCCESS
+Average Bytes Read/Millisecond for Successful Processes = 1959 bytes/ms
+
 
 ## License
 
